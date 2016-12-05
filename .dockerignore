@@ -1,0 +1,7 @@
+.idea
+.git
+.gitignore
+bin
+circle.yml
+README.md
+docker
