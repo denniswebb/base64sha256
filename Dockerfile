@@ -1,5 +1,13 @@
+FROM upsidetravel-docker.jfrog.io/golang:latest
+
+WORKDIR /go/src/github.com/denniswebb/base64sha256
+
+COPY . .
+
+RUN ./build.sh
+
 FROM scratch
 
-COPY build/app /app
+COPY --from=0 /go/src/github.com/denniswebb/base64sha256/build/app /app
 
 ENTRYPOINT ["/app"]
